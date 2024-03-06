@@ -12,7 +12,7 @@ contract HackFallback is Test {
     error HackFallback__TxFailed();
 
     address public deployer;
-    address attacker;
+    address public attacker;
     Fallback public fallbackContract;
 
     function setUp() public {

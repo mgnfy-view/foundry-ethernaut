@@ -6,7 +6,7 @@ import { Fallback } from "@src/01-Fallback/Fallback.sol";
 
 contract HackFallback is Test {
     address public deployer;
-    address attacker;
+    address public attacker;
     Fallback public fallbackContract;
 
     function setUp() public {

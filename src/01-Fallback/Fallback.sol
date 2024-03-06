@@ -3,7 +3,7 @@
 * Fallback
 * link: https://ethernaut.openzeppelin.com/level/0x3c34A342b2aF5e885FcaA3800dB5B205fEfa3ffB
 *
-* Claim ownership of the contract and reduce it's balance to 0
+* Claim ownership of the contract `Fallback` and reduce it's balance to 0
 * 
 * Use `../../test/01-Fallback.t.sol` to attack the contract and write the solution
 */
