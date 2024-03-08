@@ -48,9 +48,9 @@ contract HackTelephone is Test {
         vm.startPrank(attacker);
         AttackerContract attackerContract = new AttackerContract(address(telephone));
 
-        // the `Telephone::changeOwner` function checks if the caller is not tx.origin. We can easily bypass that check  by
-        // invoking `Telephone::changeOwner` using the attackerContract as an intermediary, and passing in the address
-        // of the attacker
+        // the `Telephone::changeOwner` function checks if the caller is not tx.origin. We can easily bypass that check
+        // by invoking `Telephone::changeOwner` using the attackerContract as an intermediary, and passing in the
+        // address of the attacker
         attackerContract.attack();
         vm.stopPrank();
 
