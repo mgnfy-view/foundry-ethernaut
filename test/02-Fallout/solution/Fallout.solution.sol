@@ -22,7 +22,7 @@ contract HackFallout is Test {
         falloutContract = new Fallout();
     }
 
-    function testClaimOwnership() public {
+    function testClaimOwnershipOfFallout() public {
         // hack the contract
         // your code goes here
 

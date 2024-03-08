@@ -23,7 +23,7 @@ contract HackFallback is Test {
         fallbackContract = new Fallback();
     }
 
-    function testClaimOwnershipAndReduceBalanceToZero() public {
+    function testClaimOwnershipOfFallbackAndReduceBalanceToZero() public {
         // hack the contract
         // your code goes here
 
