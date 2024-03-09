@@ -21,7 +21,6 @@ contract HackForce is Test {
         // hack the contract
         // your code goes here
 
-
         assert(address(force).balance > 0);
     }
 }

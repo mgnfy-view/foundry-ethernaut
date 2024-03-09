@@ -38,11 +38,12 @@ contract HackForce is Test {
         // your code goes here
         vm.startPrank(attacker);
         vm.deal(attacker, 1 ether);
-        AttackerContract attackerContract = new AttackerContract{value: 1 ether}(address(force));
-        // the contract self destructs (well, not actually after the Cancun hard fork) and sends its ether balance to the address passed in, which, in our case, is the `Force` contract
+        AttackerContract attackerContract = new AttackerContract{ value: 1 ether }(address(force));
+        // the contract self destructs (well, not actually after the Cancun hard fork) and sends its ether balance to
+        // the address passed in, which, in our case, is the `Force` contract
         attackerContract.attack();
         vm.stopPrank();
-        
+
         assert(address(force).balance > 0);
     }
 }
