@@ -6,7 +6,7 @@
 pragma solidity ^0.6.0;
 pragma experimental ABIEncoderV2;
 
-import { Test, console } from "forge-std/Test.sol";
+import { Test } from "forge-std/Test.sol";
 import { Fallout } from "@src/02-Fallout/Fallout.sol";
 
 contract HackFallout is Test {

@@ -19,7 +19,7 @@ contract AttackerContract {
     }
 
     modifier onlyOwner() {
-        require(msg.sender == owner);
+        require(msg.sender == owner, "Caller not owner");
         _;
     }
 
@@ -48,7 +48,7 @@ contract HackToken is Test {
         // your code goes here
 
         vm.startPrank(attacker);
-        // attacker deployes a contract to transfer the tokens to himself
+        // attacker deploys a contract to transfer the tokens to himself
         AttackerContract attackerContract = new AttackerContract(address(token));
         // the attack function transfers the total supply of the token contract to the attacker
         // this was all possible because of integer underflow which doesn't revert in solidity versions < 0.8.0

@@ -10,7 +10,7 @@ import { Telephone } from "@src/04-Telephone/Telephone.sol";
 
 contract AttackerContract {
     address private immutable owner;
-    Telephone private telephone;
+    Telephone private immutable telephone;
 
     constructor(address _telephone) {
         owner = msg.sender;
@@ -18,7 +18,7 @@ contract AttackerContract {
     }
 
     modifier onlyOwner() {
-        require(msg.sender == owner);
+        require(msg.sender == owner, "Caller not owner");
         _;
     }
 

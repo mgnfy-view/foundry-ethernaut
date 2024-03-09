@@ -9,7 +9,7 @@ import { Test } from "forge-std/Test.sol";
 import { Force } from "@src/07-Force/Force.sol";
 
 contract AttackerContract {
-    Force immutable force;
+    Force private immutable force;
 
     constructor(address _force) payable {
         force = Force(_force);
