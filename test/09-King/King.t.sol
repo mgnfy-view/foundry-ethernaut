@@ -26,5 +26,6 @@ contract HackKing is Test {
         vm.expectRevert();
         vm.prank(deployer);
         (bool proclamationSuccess,) = address(king).call{ value: 0 ether }("");
+        if (!proclamationSuccess) revert();
     }
 }
