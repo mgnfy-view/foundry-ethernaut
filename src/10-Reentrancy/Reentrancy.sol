@@ -3,7 +3,7 @@
 * Re-entrancy
 * link: https://ethernaut.openzeppelin.com/level/0x2a24869323C0B13Dff24E196Ba072dC790D52479
 *
-* The goal of this level is for you to steal all the funds from the contract.
+* The goal of this level is for you to steal all the funds from the `Reentrance` contract.
 * 
 * Use `../../test/10-Reentrancy.t.sol` to attack the contract and write the solution
 */

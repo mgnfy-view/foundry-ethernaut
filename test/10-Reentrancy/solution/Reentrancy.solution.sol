@@ -32,7 +32,7 @@ contract AttackerContract {
 
     function withdraw() external onlyOwner {
         (bool success,) = payable(owner).call{ value: address(this).balance }("");
-        if (!success) revert();
+        if (!success) revert("Withdraw failed");
     }
 
     receive() external payable {
@@ -77,6 +77,10 @@ contract ReEnter is Test {
 
         vm.startPrank(attacker);
         AttackerContract attackerContract = new AttackerContract{ value: ATTACKER_STARTING_BALANCE }(address(reEnter));
+        // with the `AttackerContract::attack` function, we call the withdraw function on the `Reentrancy` contract and
+        // exploit the fact that it doesn't follow the CEI pattern using reentrancy attack!
+        // before the balance of our `AttackerContract` is accounted for in `Reentrancy`, our
+        // receive function calls withdraw again until `Reentrancy` is drained of all its ether
         attackerContract.attack();
         attackerContract.withdraw();
         vm.stopPrank();
